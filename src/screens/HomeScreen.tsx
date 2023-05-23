@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, Dimensions, View } from 'react-native'
+import { ActivityIndicator, Dimensions, View, Text, FlatList } from 'react-native'
 
 import Carousel from 'react-native-snap-carousel';
 
@@ -28,10 +28,8 @@ export const HomeScreen = () => {
         <View style={{
             marginTop: top + 20,
         }}>
-
-            {/* <MoviePoster
-                movie={ peliculasEnCine[0] }
-            />  */}
+            {/* Carousel principal */}
+            
             <View style={{ height:440 }} >
                 <Carousel 
                     data={ peliculasEnCine }
@@ -41,6 +39,21 @@ export const HomeScreen = () => {
                     sliderWidth={ windowWidth }
                     itemWidth={ 300 }
                 /> 
+            </View>
+
+            {/* Flst list populares */}
+
+            <View style={{ backgroundColor:'red', height: 260 }} >
+                <Text style={{ fontSize:30, fontWeight: 'bold', }} >Cartelera</Text>
+                <FlatList 
+                    data={ peliculasEnCine }
+                    renderItem={ ({ item }: any ) => (
+                            <MoviePoster movie={ item } width={ 140 } height={ 200 } />
+                        ) }
+                    keyExtractor={ (item) => item.id.toString() }
+                    horizontal={ true }
+                    showsHorizontalScrollIndicator={ false }
+                />
             </View>
         </View>
     )
