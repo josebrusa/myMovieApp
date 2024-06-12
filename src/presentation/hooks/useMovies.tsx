@@ -44,12 +44,6 @@ export const useMovies = () => {
 
         setIsLoading(false)
 
-
-
-        console.log({ nowPlayingMovies });
-        console.log({ popularMovies });
-        console.log({ upComingMovies });
-        console.log({ topRatedMovies });
     }
 
     return {
