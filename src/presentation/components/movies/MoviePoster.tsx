@@ -18,14 +18,14 @@ export const MoviePoster = ({ movie, heigth = 420, width = 300 }: Props) => {
             onPress={() => navigation.navigate('Details', { movieId: movie.id })}
             style={({ pressed }) => ({
                 width, heigth,
-                marginHorizontal: 10,
+                marginHorizontal: 4,
                 paddingBottom: 20,
-                paddingHorizontal: 10,
+                paddingHorizontal: 7,
                 opacity: pressed ? 0.9 : 1
             })}
         >
 
-            <View style={{ ...styles.imageContainer, width: 300, height: 400 }}>
+            <View style={{ ...styles.imageContainer }}>
                 <Image
                     style={styles.image}
                     source={{ uri: movie.poster }}
