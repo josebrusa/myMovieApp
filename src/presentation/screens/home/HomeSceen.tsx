@@ -24,7 +24,7 @@ export const HomeScreen = () => {
                 {/* Principal Carousel */}
                 <PosterCarousel movies={nowPlaying} />
                 {/* Popular Carousel */}
-                <HorizontalCarousel movies={popular} title="Populares" />
+                <HorizontalCarousel movies={popular} title="Populares" loadNextPage={() => { }} />
                 {/* top rated Carousel */}
                 <HorizontalCarousel movies={topRated} title="Top Rated" />
                 {/* up-coming Carousel */}
