@@ -1,7 +1,9 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { RootStackParams } from '../../navigation/Navigation';
 import { useMovie } from '../../hooks/useMovie';
+import { MovieHeader } from '../../components/movie/MovieHeader';
+import { MovieDetails } from '../../components/movie/MovieDetails';
 
 
 
@@ -11,14 +13,27 @@ interface Props extends StackScreenProps<RootStackParams, 'Details'> { }
 export const DetailsScreen = ({ route }: Props) => {
 
     const { movieId } = route.params;
-    const { } = useMovie(movieId);
+    const { movie, isLoading } = useMovie(movieId);
+
+
+    if (isLoading) {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        );
+    }
 
     return (
-        <View>
-            <Text>
-                Details Screen
-            </Text>
-        </View>
+        <ScrollView>
+            {/* Header */}
+            <MovieHeader
+                originalTitle={movie!.originalTitle}
+                title={movie!.title}
+                poster={movie!.poster} />
+            {/* Details */}
+            <MovieDetails movie={movie!} />
+        </ScrollView>
     );
 }
 
