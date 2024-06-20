@@ -4,6 +4,7 @@ import { RootStackParams } from '../../navigation/Navigation';
 import { useMovie } from '../../hooks/useMovie';
 import { MovieHeader } from '../../components/movie/MovieHeader';
 import { MovieDetails } from '../../components/movie/MovieDetails';
+import { FullScreenLoader } from '../../components/loaders/FullScreenLoader';
 
 
 
@@ -18,10 +19,8 @@ export const DetailsScreen = ({ route }: Props) => {
 
     if (isLoading) {
         return (
-            <View>
-                <Text>Loading...</Text>
-            </View>
-        );
+            <FullScreenLoader />
+        )
     }
 
     return (
